@@ -3,7 +3,7 @@ import { invoicesReducers } from '../store/reducers/invoicesReducers';
 import generatePaymentDueDate from '../utilities/generatePaymentDueDate';
 import generateID from '../utilities/generateId';
 
-const API_URL = "http://localhost:5000";
+const API_URL = "http://localhost:5000/api";
 
 const getInvoicesFromAPI = async () => {
   try {

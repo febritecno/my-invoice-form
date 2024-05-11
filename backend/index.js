@@ -10,7 +10,7 @@ app.listen(5000, () => {
 
 app.use(cors());
 app.use(express.json());
-app.use("/invoice", user);
+app.use("/api/invoice", user);
 
 conn.connection.on("connected", (err) => {
     if (err) {
