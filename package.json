@@ -4,7 +4,7 @@
   "description": "Monorepo containing frontend and backend applications",
   "author": "Febrian Dwi Putra",
   "scripts": {
-    "install": "npm install && npm-run-all --parallel install:frontend install:backend",
+    "install": "npm-run-all --parallel install:frontend install:backend",
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
     "dev": "npm-run-all --parallel dev:frontend dev:backend",
