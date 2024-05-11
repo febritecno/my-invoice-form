@@ -1,0 +1,41 @@
+# Node dependencies
+node_modules/
+
+# Generated files
+/build
+/dist
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Log files
+*.log
+npm-debug.log*
+
+# IDE files
+.vscode/
+.idea/
+
+# Dependency lock files
+yarn.lock
+package-lock.json
+
+# Build files
+/build
+.DS_Store
+
+# Ignore production build
+/build
+
+# Ignore development environment files
+.env.development
+.env.local
+.env.test
+.env.production
+
+# Ignore any local configuration files
+config.js

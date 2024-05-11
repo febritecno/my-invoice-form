@@ -1,26 +1,20 @@
 {
   "version": 2,
   "builds": [
-    { "src": "/backend/**", "use": "@vercel/node" },
-    { "src": "/frontend/**", "use": "@vercel/static" }
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "frontend/build" }
+    }
   ],
   "routes": [
-    {
-      "src": "/backend/(.*)",
-      "dest": "/backend/$1",
-      "status": 200
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/backend/$1",
-      "status": 200
-    },
+    { "src": "/frontend/(.*)", "dest": "frontend/$1" },
     {
       "src": "/(.*)",
-      "dest": "/frontend/$1"
+      "dest": "/backend/$1"
     }
   ],
   "rewrites": [
-    { "source": "/backend/(.*)", "destination": "http://localhost:5000/$1" }
+    { "source": "/api/:path*", "destination": "/backend/api/:path*" }
   ]
 }
