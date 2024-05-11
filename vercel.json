@@ -1,14 +1,12 @@
 {
   "version": 2,
   "builds": [
-    { "src": "frontend/package.json", "use": "@vercel/static-build" },
+    { "src": "frontend", "use": "@vercel/static-build" },
     { "src": "dist/**", "use": "@vercel/static" }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/backend/$1" },
-    { "source": "/api/(.*)", "destination": "http://localhost:5000/api/$1" }
-  ],
   "routes": [
+    { "src": "/(.*)", "dest": "/backend/$1" },
+    { "src": "/api/(.*)", "dest": "http://localhost:5000/api/$1" },
     { "src": "/frontend/dist/(.*)", "dest": "frontend/dist/$1" }
   ]
 }
