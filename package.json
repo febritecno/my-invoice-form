@@ -10,7 +10,9 @@
     "dev": "npm-run-all --parallel dev:frontend dev:backend",
     "dev:frontend": "cd frontend && npm run start",
     "dev:backend": "cd backend && npm run server",
-    "start": "npm run install && npm run dev"
+    "build:frontend": "cd frontend && npm run build",
+    "start": "npm run install && npm run dev",
+    "prod": "npm run install && npm-run-all --parallel dev:backend build:frontend"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
