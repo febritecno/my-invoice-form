@@ -1,12 +1,17 @@
 {
   "version": 2,
   "builds": [
-    { "src": "frontend", "use": "@vercel/static-build" },
-    { "src": "dist/**", "use": "@vercel/static" }
+    {
+      "src": "backend",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "frontend",
+      "use": "@vercel/static-build"
+    }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/backend/$1" },
-    { "src": "/api/(.*)", "dest": "http://localhost:5000/api/$1" },
-    { "src": "/frontend/dist/(.*)", "dest": "frontend/dist/$1" }
+    { "src": "/api/(.*)", "dest": "backend/$1" },
+    { "src": "/(.*)", "dest": "frontend/$1" }
   ]
 }
