@@ -3,7 +3,10 @@ import { invoicesReducers } from '../store/reducers/invoicesReducers';
 import generatePaymentDueDate from '../utilities/generatePaymentDueDate';
 import generateID from '../utilities/generateId';
 
-const API_URL = "http://localhost:5000/api";
+require('dotenv').config();
+
+const BASE_API_URL = process.env.BASE_API_URL || "http://localhost:5000";
+const API_URL = `${BASE_API_URL}/api`;
 
 const getInvoicesFromAPI = async () => {
   try {
