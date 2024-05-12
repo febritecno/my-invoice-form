@@ -56,7 +56,7 @@ const CreateInvoiceForm = () => {
                   type="button"
                   className="bg-white border-solid border-[1px] border-[#dfe3fa] text-[12px] rounded-[50px] py-[12px] px-[28px] mr-auto"
                 >
-                  <button type="button" onClick={() => { goBack(navigate(`/` + location.search)) }}>Go Back</button>
+                  <button type="button" onClick={() => { goBack(navigate(`/` + location.search)) }}>BACK</button>
                 </button>
                 <button
                   className="text-white text-[12px] rounded-[50px] bg-[#121212] flex justify-center items-center h-[40px] w-[150px]"
