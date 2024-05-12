@@ -5,12 +5,11 @@
   "author": "Febrian Dwi Putra",
   "scripts": {
     "setup": "npm-run-all --parallel setup:frontend setup:backend",
-    "setup:frontend": "cd frontend && npm setup",
-    "setup:backend": "cd backend && npm setup",
+    "setup:frontend": "cd frontend && npm install",
+    "setup:backend": "cd backend && npm install",
     "dev": "npm-run-all --parallel dev:frontend dev:backend",
     "dev:frontend": "cd frontend && npm run start",
     "dev:backend": "cd backend && npm run server",
-    "build:frontend": "cd frontend && npm run build",
     "start": "npm run setup && npm run dev"
   },
   "devDependencies": {

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
-mongoose.connect('mongodb+srv://clonea9494:Ffmv425B9nxUsWN7@cluster0.ctinio4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+const MONGODB_URL = 'mongodb+srv://clonea9494:Ffmv425B9nxUsWN7@cluster0.ctinio4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(MONGODB_URL)
     .then(async () => {
         const Invoice = mongoose.model("invoices");
         const count = await Invoice.countDocuments();

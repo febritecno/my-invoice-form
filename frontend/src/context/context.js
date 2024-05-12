@@ -4,6 +4,7 @@ import generatePaymentDueDate from '../utilities/generatePaymentDueDate';
 import generateID from '../utilities/generateId';
 
 const BASE_API_URL = "https://invoices-928j-8fuwboslj-febritecnos-projects.vercel.app";
+// const BASE_API_URL = "http://localhost:5000";
 const API_URL = `${BASE_API_URL}/api`;
 
 const getInvoicesFromAPI = async () => {
