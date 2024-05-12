@@ -13,7 +13,7 @@ const Header = () => (
       <nav>
         <div className="flex items-center gap-4 md:gap-8 text-white">
           <div className="h-full w-[40px] md:w-[90px] flex justify-center items-center">
-            <span className="md:text-[18px] pl-6">Febrian</span>
+            <span className="md:text-[18px] pr-6">Febrian</span>
           </div>
         </div>
       </nav>
