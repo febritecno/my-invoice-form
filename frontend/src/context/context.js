@@ -3,7 +3,7 @@ import { invoicesReducers } from '../store/reducers/invoicesReducers';
 import generatePaymentDueDate from '../utilities/generatePaymentDueDate';
 import generateID from '../utilities/generateId';
 
-const BASE_API_URL = "https://invoices-928j-8fuwboslj-febritecnos-projects.vercel.app";
+const BASE_API_URL = "https://invoices-928j.vercel.app/api/invoice";
 // const BASE_API_URL = "http://localhost:5000";
 const API_URL = `${BASE_API_URL}/api`;
 
