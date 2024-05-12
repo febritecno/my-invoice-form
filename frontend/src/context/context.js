@@ -7,19 +7,6 @@ const BASE_API_URL = "https://invoices-928j.vercel.app";
 // const BASE_API_URL = "http://localhost:5000";
 const API_URL = `${BASE_API_URL}/api`;
 
-const getInvoicesFromAPI = async () => {
-  try {
-    const response = await fetch(`${API_URL}/invoice`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch invoices');
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching invoices:', error);
-    return [];
-  }
-};
-
 // Initial state values
 const initialState = {
   invoices: [],
@@ -38,11 +25,25 @@ export const GlobalProvider = ({ children }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoints = 768;
 
-  useEffect(() => {
-    const fetchInvoices = async () => {
-      const invoices = await getInvoicesFromAPI();
-      dispatch({ type: 'SET_INVOICES', payload: invoices });
+  const fetchInvoices = async () => {
+    const getInvoicesFromAPI = async () => {
+      try {
+        const response = await fetch(`${API_URL}/invoice`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch invoices');
+        }
+        return await response.json();
+      } catch (error) {
+        console.error('Error fetching invoices:', error);
+        return [];
+      }
     };
+
+    const invoices = await getInvoicesFromAPI();
+    dispatch({ type: 'SET_INVOICES', payload: invoices });
+  };
+
+  useEffect(() => {
     fetchInvoices();
   }, []);
 
@@ -143,6 +144,11 @@ export const GlobalProvider = ({ children }) => {
     }
   };
 
+  const goBack = async (navigate) => {
+    await fetchInvoices();
+    navigate();
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -160,6 +166,7 @@ export const GlobalProvider = ({ children }) => {
         filteredInvoices,
         width,
         breakpoints,
+        goBack
       }}
     >
       {children}

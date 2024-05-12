@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Formik, Form as FormikForm } from 'formik';
-import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { AppContext } from '../../context/context';
 import Fields from '../Fields/Fields';
@@ -10,7 +9,7 @@ import { validationSchema } from '../../utilities/validationSchema';
 import { createFormVariant } from '../../utilities/framerVariants';
 
 const CreateInvoiceForm = () => {
-  const { createInvoice } = useContext(AppContext);
+  const { createInvoice, goBack } = useContext(AppContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -57,7 +56,7 @@ const CreateInvoiceForm = () => {
                   type="button"
                   className="bg-white border-solid border-[1px] border-[#dfe3fa] text-[12px] rounded-[50px] py-[12px] px-[28px] mr-auto"
                 >
-                  <Link to="/">Go Back</Link>
+                  <button type="button" onClick={() => { goBack(navigate(`/` + location.search)) }}>Go Back</button>
                 </button>
                 <button
                   className="text-white text-[12px] rounded-[50px] bg-[#121212] flex justify-center items-center h-[40px] w-[150px]"
